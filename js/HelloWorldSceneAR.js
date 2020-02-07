@@ -16,7 +16,8 @@ import {
   ViroDirectionalLight,
   ViroAnimations,
   ViroParticleEmitter,
-  ViroSurface
+  ViroSurface,
+  ViroImage
 } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
@@ -39,17 +40,12 @@ export default class HelloWorldSceneAR extends Component {
         <ViroDirectionalLight color="#ffffff" direction={[0,-1,-.2]}/>
       <ViroAmbientLight color="#ffffff" intensity={200}/>
 
-      <Viro3DObject
-        source={require('./res/icecreamman_anim/icecreamman_anim_a.vrx')}
-        resources={[require('./res/icecreamman_anim/icecreamman_diffuse.png'),
-                    require('./res/icecreamman_anim/icecreamman_normal.png'),
-                    require('./res/icecreamman_anim/icecreamman_specular.png')]}
+      <ViroImage
+        height={1}
+        width={1}
+        placeholderSource={require("./res/Transfo.png")}
+        source={require("./res/Transfo.png")}
         position={[0, -1, -2]}
-        scale={[.5, .5, .5]}
-        type="VRX"
-        dragType="FixedToWorld" onDrag={()=>{}}
-        onClick={this._onTappedIcecream}
-        animation={{name:"02", run:this.state.runAnimation, loop:true,}}
       />
       </ViroARScene>
     );
@@ -93,3 +89,16 @@ module.exports = HelloWorldSceneAR;
         type="OBJ"
       />
     </ViroARScene>*/
+
+    /*<Viro3DObject
+        source={require('./res/icecreamman_anim/icecreamman_anim_a.vrx')}
+        resources={[require('./res/icecreamman_anim/icecreamman_diffuse.png'),
+                    require('./res/icecreamman_anim/icecreamman_normal.png'),
+                    require('./res/icecreamman_anim/icecreamman_specular.png')]}
+        position={[0, -1, -2]}
+        scale={[.5, .5, .5]}
+        type="VRX"
+        dragType="FixedToWorld" onDrag={()=>{}}
+        onClick={this._onTappedIcecream}
+        animation={{name:"02", run:this.state.runAnimation, loop:true,}}
+      />*/
